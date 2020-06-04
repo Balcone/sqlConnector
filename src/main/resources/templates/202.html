@@ -77,118 +77,7 @@
                     field: 'reportUnit',
                     title: '上报单位'
                 },];
-            //设置表内数据
-            var data = [{
-                no: 1,
-                ID: '5132211001001112134',
-                date: '12-5-2008-14:28',
-                location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                type: 'V',
-                grade: 'V',
-                picture: '/',
-                note: '死亡人数69227',
-                reportUnit: '中国地震局',
-            },
-                {
-                    no: 2,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 3,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 4,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 5,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 6,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 7,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 8,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 9,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },
-                {
-                    no: 10,
-                    ID: '5132211001001112134',
-                    date: '12-5-2008-14:28',
-                    location: '四川省阿坝藏族羌族自治州汶川县映秀镇',
-                    type: 'V',
-                    grade: 'V',
-                    picture: '/',
-                    note: '死亡人数69227',
-                    reportUnit: '中国地震局',
-                },];
-            //bootstrap table初始化数据
+            //bs table初始化数据 表内数据由getData()得到
             $('#table').bootstrapTable({
                 toolbar: "#toolbar",
                 data: getData(),
@@ -220,6 +109,7 @@
                 }
             }
 
+            //后端在这get表格数据
             function getData() {
                 var data = [];
                 for (var i = 0; i < 5; i++) {
