@@ -18,15 +18,18 @@ public class fileUploadController {
     /**
      * 文件上传
      */
-    @PostMapping("/202/CommDisaster")
-    public String fileUpload(MultipartFile file) throws Exception{
-        String path="src/main/resources/data";
+    @PostMapping("/fileUploadController")
+    public void fileUpload(MultipartFile file) throws Exception{
+        String path="c:/data/202";
         System.out.println(file.getOriginalFilename());
-        file.transferTo(new File(path+file.getOriginalFilename()));
+        file.transferTo(new File("c:/data/202/"+file.getOriginalFilename()));
 
         ArrayList<Data> datas=new ArrayList<>();
         new ReadInJson().getFiles(path, datas);
 
-        return "OK";
+        //将datas插入数据库
+
+
+
     }
 }
