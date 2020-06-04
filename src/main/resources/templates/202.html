@@ -11,6 +11,11 @@
     <link>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="http://www.itxst.com/package/jquery-3.3.1/jquery.js"></script>
+    <!--    <link href="http://www.itxst.com/package/bootstrap-4.3.1/css/bootstrap.css" rel="stylesheet" />-->
+    <link href="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.css" rel="stylesheet"/>
+    <script src="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.js"></script>
 </head>
 
 <!--<body th:style="'background:url(' + @{/image/background.jpg} + ');'">-->
@@ -24,236 +29,129 @@
     <div class="row">
         <div class="col-sm-2" th:insert="~{public :: public_left}">
         </div>
-        <div class="col-sm-10">
-            <table class="table table-hover">
-                <thead>
-                <tr class="alert-info active table-">
-                    <td><b>编码</b></td>
-                    <td><b>上报时间</b></td>
-                    <td><b>地点</b></td>
-                    <td><b>类型</b></td>
-                    <td><b>破坏等级</b></td>
-                    <td><b>典型照片</b></td>
-                    <td><b>灾情描述</b></td>
-                    <td><b>上报单位</b></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-                <tr>
-                    <td>5132211001001112134
-                    </td>
-                    <td>12-5-2008-14:28
-                    </td>
-                    <td>四川省阿坝藏族羌族自治州汶川县映秀镇
-                    </td>
-                    <td>V
-                    </td>
-                    <td>V
-                    </td>
-                    <td>
-                    </td>
-                    <td>死亡人数69227
-                    </td>
-                    <td>中国地震局
-                    </td>
-                </tr>
-
-
-                </tbody>
-            </table>
+        <div id="toolbar">
+            <button onclick="deleteSelects() ">删除选中的数据</button>
         </div>
+        <div class="col-sm-10">
+            <table id="table"></table>
+        </div>
+        <script>
+            //设置需要显示的列
+            var columns = [
+                {
+                    checkbox: true
+                },
+                {
+                    field: "no",
+                    title: '序号'
+                },
+                {
+                    field: 'ID',
+                    title: '编码'
+                },
+                {
+                    field: 'date',
+                    title: '上报时间'
+                },
+                {
+                    field: 'location',
+                    title: '地点'
+                },
+                {
+                    field: 'type',
+                    title: '类型'
+                },
+                {
+                    field: 'grade',
+                    title: '破坏等级'
+                },
+                {
+                    field: 'picture',
+                    title: '典型照片'
+                },
+                {
+                    field: 'note',
+                    title: '灾情描述'
+                },
+                {
+                    field: 'reportUnit',
+                    title: '上报单位'
+                },];
+            //bs table初始化数据 表内数据由getData()得到
+            $('#table').bootstrapTable({
+                toolbar: "#toolbar",
+                data: getData(),
+                columns: columns,
+                search: true,
+                searchOnEnterKey: true,
+                showExport:true,
+                exportDataType: "basic",
+            });
+            
+            //删除选中行
+            function deleteSelects() {
+                var obj = $('#table');
+                var ids = $.map(obj.bootstrapTable('getSelections'), function (row) {
+                    return row.no
+                });
+                obj.bootstrapTable('remove', {field: 'no', values: ids});
+
+            }
+            
+            //生成随机数小函数
+            function randomNum(minNum, maxNum) {
+                switch (arguments.length) {
+                    case 1:
+                        return parseInt(Math.random() * minNum + 1, 10);
+                        break;
+                    case 2:
+                        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                        break;
+                    default:
+                        return 0;
+                        break;
+                }
+            }
+
+            //后端在这get表格数据
+            function getData() {
+                var data = [];
+                var locationArray = new Array();
+                locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
+                locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
+                locationArray[2] = "四川省德阳市绵竹县";
+                locationArray[3] = "四川省阿坝藏族羌族自治州茂县"
+                for (var i = 0; i < 5; i++) {
+                    var item = {
+                        no: i + 1,
+                        ID: '5132211001001112134' + i,
+                        date: '12-5-2008-14:28',
+                        location: locationArray[randomNum(0,3)],
+                        type: 'V',
+                        grade: 'V',
+                        picture: '/',
+                        note: '死亡人数' + randomNum(10000, 70000),
+                        reportUnit: '中国地震局',
+                    };
+                    data.push(item);
+                }
+                ;
+                return data;
+            }
+
+        </script>
     </div>
 </div>
 <!--按钮-->
 <div id="buttons" style="margin-left: 76%;">
-    <!--下载按钮-->
+    <!--&lt;!&ndash;下载按钮&ndash;&gt;
     <form id="download_button" class="form-signin" th:action="@{/employee/File/download}" method="post"
           style="color: #005cbf;">
         <p><input type="submit" value="下载"/></p>
         <p style="color: red" th:text="${result}" th:if="${not #strings.isEmpty(result)}"></p>
-    </form>
+    </form>-->
     <!--上传按钮-->
-    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-bottom: 50%;">
+    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-top: 10%;">
         <input type="file" name="file"/>
         <input type="submit" value="确定" style="margin-left: 40%;"/>
     </form>
