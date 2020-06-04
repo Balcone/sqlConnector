@@ -12,7 +12,6 @@ import com.sqlconnector.demo.javabeans.housedamage.*;
 import com.sqlconnector.demo.javabeans.lifeline.*;
 import com.sqlconnector.demo.javabeans.secondarydisaster.*;
 import org.apache.commons.io.FileUtils;
-import org.hibernate.stat.Statistics;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,12 +29,12 @@ public class ReadInJson {
         List<File> fileList=new ArrayList<>();
         File file=new File(path);
         MSCode=file.getName();
-        //5System.out.println(MSCode);
+        //System.out.println(MSCode);
         //System.out.println(file.getAbsolutePath());
         //获取目录下的所有文件/文件夹
         File[] files=file.listFiles();
         if(files==null){
-            System.out.println("this is null");
+            //System.out.println("this is null");
             return;
         }
         //遍历目录下的所有文件或文件夹
@@ -49,7 +48,7 @@ public class ReadInJson {
             }
         }
         for(File f1:fileList){
-            System.out.println(f1.getName());
+            //System.out.println(f1.getName());
             readJson(f1, MSCode, datas);
 
         }
@@ -61,7 +60,7 @@ public class ReadInJson {
             throws IOException {
         System.out.println("开始读取文件:"+file.getName());
         //获取JSON文件内容，并转化为字符串类型
-        String jsonStr=FileUtils.readFileToString(file);
+        String jsonStr= FileUtils.readFileToString(file);
 
         //将字符串转化为jsonObject
         JSONObject jsonObject= JSON.parseObject(jsonStr);
