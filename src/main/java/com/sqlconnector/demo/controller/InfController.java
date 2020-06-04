@@ -1,20 +1,16 @@
 package com.sqlconnector.demo.controller;
 
 import com.sqlconnector.demo.common.CommonResult;
-import com.sqlconnector.demo.dao.InformationDAO;
 import com.sqlconnector.demo.domain.Information;
 import com.sqlconnector.demo.service.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
 public class InfController {
 
-    @Resource
-    private InformationDAO informationDAO;
     @Autowired
     private InformationService informationService;
 
@@ -64,7 +60,7 @@ public class InfController {
     }
 
     //查询所有
-    @GetMapping(value = "/findAll")
+    @GetMapping(value = "/findAllInFor")
     public CommonResult findAll() {
         CommonResult result = new CommonResult();
         try {
