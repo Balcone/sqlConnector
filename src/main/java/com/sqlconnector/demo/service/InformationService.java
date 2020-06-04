@@ -24,7 +24,7 @@ public class InformationService {
     }
     //根据id删除一条数据
     public void deleteInformationById(char id){
-        informationDAO.deleteById(id);
+//        informationDAO.deleteByID(id);
     }
 
     //查询所有
@@ -33,7 +33,7 @@ public class InformationService {
     }
 
     //根据id查询一条数据(2.0后不能使用findOne了)
-    public Information findInformationById(char id){
-        return informationDAO.findById(id).get();
+    public void findInformationById(char id){
+//        return informationDAO.findByID(id).get(0);
     }
 }

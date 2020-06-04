@@ -6,5 +6,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface InformationDAO extends JpaRepository<Information, Character> {
-    public List<Information> findByID(int id);
 }

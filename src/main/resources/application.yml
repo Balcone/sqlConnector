@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
@@ -7,8 +7,13 @@ spring:
     username: root
     password: root
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
       ddl-auto: update
     database: MYSQL
+  thymeleaf:
+    mode: LEGACYHTML5  # 不进未关闭标签检查，需配合nekohtml使用
+    cache: false  # 关闭缓存，开发过程中开启
+    prefix: classpath:/templates/ # 定位模板的目录
+    suffix: .html # 后缀

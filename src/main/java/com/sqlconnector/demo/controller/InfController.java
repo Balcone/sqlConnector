@@ -85,9 +85,9 @@ public class InfController {
     public CommonResult findInformationById(@PathVariable(name = "id") char id) {
         CommonResult result = new CommonResult();
         try {
-            Information information = informationService.findInformationById(id);
+//            Information information = informationService.findInformationById(id);
             //将查询结果封装到CommonResult中
-            result.setData(information);
+//            result.setData(information);
             return result;
         } catch (Exception e) {
             e.printStackTrace();

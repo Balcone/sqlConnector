@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <!--    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />-->
+    <!--    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" />-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <!--顶部导航-->
+    <div class="row">
+        <div class="nav col-sm-12 " th:fragment="public_top">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="/index/">首页</a>
+                </li>
+                <li>
+                    <a href="/disasterRequest/">请求列表</a>
+            </ul>
+        </div>
+    </div>
+    <br/>
+    <!--内容-->
+    <!--    <div class="row">-->
+    <!--        <div class="col-sm-2">-->
+    <!--            &lt;!&ndash;            <ul class="nav nav-list" th:fragment="public_left">&ndash;&gt;-->
+    <!--            <li class="nav-header">选择查看目录</li>-->
+    <!--            <li class="nav-link"><a href="#" th:href="@{/index1}"-->
+    <!--                                    th:class="${activeUri=='index1'?'nav-link active':'nav-link'}">业务报送数据</a></li>-->
+    <!--            <li class="nav-link"><a href="#" th:href="@{/index2}"-->
+    <!--                                    th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">泛在感知数据</a></li>-->
+    <!--            <li class="nav-link"><a href="#" th:href="@{/202/CommDisaster}"-->
+    <!--                                    th:class="${activeUri=='202'?'nav-link active':'nav-link'}">通信系统灾情统计</a></li>-->
+    <!--            </ul>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--手风琴目录-->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" th:fragment="public_left">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                       aria-expanded="true" aria-controls="collapseOne">
+                        人员伤亡及失踪
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <li class="nav-link"><a href="#" th:href="@{/index1}"
+                                            th:class="${activeUri=='index1'?'nav-link active':'nav-link'}">死亡</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index1}"
+                                            th:class="${activeUri=='index1'?'nav-link active':'nav-link'}">受伤</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index1}"
+                                            th:class="${activeUri=='index1'?'nav-link active':'nav-link'}">失踪</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        房屋破坏
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">土木</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">砖木</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">砖混</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">框架</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">其他</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        生命线工程灾情
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">交通</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">供水</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">输油</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">燃气</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">电力</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/202/CommDisaster}"
+                                            th:class="${activeUri=='202'?'nav-link active':'nav-link'}">通信</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">水利</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        次生灾害
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">崩塌</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">滑坡</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">泥石流</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">岩溶塌陷</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">地裂缝</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">地面沉降</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">其他（沙土液化、火灾、毒气泄露、爆炸、环境污染、瘟疫、海啸等）</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFive">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        震情
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">基本震情</a>
+                    </li>
+                    <li class="nav-link"><a href="#" th:href="@{/index2}"
+                                            th:class="${activeUri=='index2'?'nav-link active':'nav-link'}">灾情预测</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="assets/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+</body>
+</html>
