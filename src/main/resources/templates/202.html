@@ -12,7 +12,7 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="http://www.itxst.com/package/jquery-3.3.1/jquery.js"></script>
-    <link href="http://www.itxst.com/package/bootstrap-4.3.1/css/bootstrap.css" rel="stylesheet" />
+<!--    <link href="http://www.itxst.com/package/bootstrap-4.3.1/css/bootstrap.css" rel="stylesheet" />-->
     <link href="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.css" rel="stylesheet" />
     <script src="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.js"></script>
 </head>
@@ -213,7 +213,7 @@
         <p style="color: red" th:text="${result}" th:if="${not #strings.isEmpty(result)}"></p>
     </form>-->
     <!--上传按钮-->
-    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-bottom: 50%;">
+    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-top: 10%;">
         <input type="file" name="file"/>
         <input type="submit" value="确定" style="margin-left: 40%;"/>
     </form>
