@@ -84,8 +84,11 @@
                 columns: columns,
                 search: true,
                 searchOnEnterKey: true,
+                showExport:true,
+                exportDataType: "basic",
             });
-
+            
+            //删除选中行
             function deleteSelects() {
                 var obj = $('#table');
                 var ids = $.map(obj.bootstrapTable('getSelections'), function (row) {
@@ -94,7 +97,8 @@
                 obj.bootstrapTable('remove', {field: 'no', values: ids});
 
             }
-
+            
+            //生成随机数小函数
             function randomNum(minNum, maxNum) {
                 switch (arguments.length) {
                     case 1:

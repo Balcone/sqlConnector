@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class pageController {
-
     @RequestMapping("/index")
     public String goMain() {
         return "index";
@@ -35,5 +34,9 @@ public class pageController {
     @RequestMapping("disasterRequest")
     public String goRequest() {
         return "disasterRequest";
+    }
+    
+    public int randomNum(){
+        return 10000;
     }
 }
