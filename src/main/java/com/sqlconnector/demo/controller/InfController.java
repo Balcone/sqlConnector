@@ -19,7 +19,7 @@ public class InfController {
     private InformationService informationService;
 
     //添加
-    @PostMapping(value = "/addStudent")
+    @RequestMapping(value = "/addInformation")
     public CommonResult addStudent(Information information) {
         CommonResult result = new CommonResult();
         try {
