@@ -13,10 +13,6 @@ public class DemoApplication {
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(DemoApplication.class, args);
-
-        String path="src/main/resources/data";
-        ArrayList<Data> datas=new ArrayList<>();
-        new ReadInJson().getFiles(path, datas);
     }
 
 
