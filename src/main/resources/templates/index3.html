@@ -37,6 +37,13 @@
         </div>
         <script>
             //设置需要显示的列
+            var unitArray = new Array();
+            unitArray[0] = "四川省地震局";
+            unitArray[1] = "云南省地震局";
+            unitArray[2] = "甘肃省地震局";
+            unitArray[3] = "陕西省地震局";
+            unitArray[4] = "宁夏回族自治区地震局";
+            unitArray[5] = "四川省地震局";
             var columns = [
                 {
                     checkbox: true
@@ -129,11 +136,11 @@
                         ID: '5132211001001112134' + i,
                         date: '12-5-2008-14:28',
                         location: locationArray[randomNum(0,5)],
-                        type: 'V',
-                        grade: 'V',
+                        type: '次生灾害',
+                        grade: randomNum(1,3),
                         picture: '/',
                         note: '死亡人数' + randomNum(10000, 70000),
-                        reportUnit: '中国地震局',
+                        reportUnit: unitArray[randomNum(0,5)],
                     };
                     data.push(item);
                 }
