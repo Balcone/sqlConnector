@@ -31,20 +31,23 @@
     <br/>
     <!--内容-->
     <div class="row">
-        <div class="col-sm-2" th:insert="~{public :: public_left_request}">
+        <div class="col-sm-2" th:insert="~{public :: public_left}">
         </div>
         <div id="toolbar">
             <button onclick="sendToSelects(),alert('成功发送数据')">向所选目标发送数据</button>
             <button onclick="addRequestLine(),alert('成功接收新的数据请求')">接收新的数据请求</button>
         </div>
         <div class="col-sm-10">
-            <table id="table" class="table table-hover"></table>
+            <h3>未发送</h3>
+            <table id="unsend_table" class="table table-hover"></table>
+            <h3>已发送</h3>
+            <table id="sended_table" class="table table-hover"></table>
         </div>
         <script>
             //当前表格的行数 初始为5
             var itemNum = 5;
             //设置需要显示的列
-            var columns = [
+            var columnsUnsend = [
                 {
                     checkbox: true
                 },
@@ -77,28 +80,66 @@
                     field: 'requestUnit',
                     title: '请求单位',
                 },];
+            var columnsSended = [
+                {
+                    field: "no",
+                    title: '序号',
+                    sortable: true,
+                },
+                {
+                    field: 'ID',
+                    title: '编码',
+                },
+                {
+                    field: 'date',
+                    title: '请求时间',
+                },
+                {
+                    field: 'disasterType',
+                    title: '请求的灾情类型',
+                },
+                {
+                    field: 'status',
+                    title: '状态',
+                },
+                {
+                    field: 'o_URL',
+                    title: '发送地址',
+                },
+                {
+                    field: 'requestUnit',
+                    title: '请求单位',
+                },];
 
             //bs table初始化数据 表内数据由getData()得到
-            $('#table').bootstrapTable({
+            $('#unsend_table').bootstrapTable({
                 toolbar: "#toolbar",
                 data: getData(),
-                columns: columns,
+                columns: columnsUnsend,
                 search: true,
                 searchOnEnterKey: true,
             });
-
+            $('#sended_table').bootstrapTable({
+                data: getSended(),
+                columns: columnsSended,
+                search: true,
+                searchOnEnterKey: true,
+            });
             //删除选中行
             function sendToSelects() {
-                var obj = $('#table');
+                var obj = $('#unsend_table');
+                var obj2 = $('#sended_table');
+                var selectContent = obj.bootstrapTable('getSelections');
                 var ids = $.map(obj.bootstrapTable('getSelections'), function (row) {
                     return row.no
                 });
                 obj.bootstrapTable('remove', {field: 'no', values: ids});
+                obj2.bootstrapTable('append',selectContent);
             }
 
             //接收新的数据请求（增加行）
             function addRequestLine() {
-                var obj = $('#table');
+                var obj = $('#unsend_table');
                 obj.bootstrapTable('insertRow', {
                     index: 0,
                     row: {
@@ -147,11 +188,24 @@
                         requestUnit: '中国地震局',
                     };
                     data.push(item);
-                }
-                ;
+                };
                 return data;
             }
-
+            
+            function getSended() {
+                var data = [];
+                var item = {
+                    no: 0,
+                    ID: '5132211001001112134',
+                    date: '12-5-2008-14:28',
+                    disasterType: 'V',
+                    status: '未发送',
+                    o_URL: randomIP(),
+                    requestUnit: '中国地震局',
+                };
+                data.push(item);
+                return data;
+            }
         </script>
     </div>
 </div>
