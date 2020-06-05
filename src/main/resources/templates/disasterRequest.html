@@ -46,6 +46,13 @@
         <script>
             //当前表格的行数 初始为5
             var itemNum = 5;
+            var unitArray = new Array();
+            unitArray[0] = "四川省地震局";
+            unitArray[1] = "云南省地震局";
+            unitArray[2] = "甘肃省地震局";
+            unitArray[3] = "陕西省地震局";
+            unitArray[4] = "宁夏回族自治区地震局";
+            unitArray[5] = "四川省地震局";
             //设置需要显示的列
             var columnsUnsend = [
                 {
@@ -140,7 +147,7 @@
                         date: '12-5-2008-14:28',
                         disasterType: '生命线-通信',
                         o_URL: randomIP(),
-                        requestUnit: '中国地震局',
+                        requestUnit: unitArray[randomNum(0,5)],
                     }
                 });
                 itemNum++;
@@ -175,7 +182,7 @@
                         date: '12-5-2008-14:28',
                         disasterType: '生命线-通信',
                         o_URL: randomIP(),
-                        requestUnit: '中国地震局',
+                        requestUnit: unitArray[randomNum(0,5)],
                     };
                     data.push(item);
                 };
@@ -190,7 +197,7 @@
                     date: '12-5-2008-14:28',
                     disasterType: '生命线-通信',
                     o_URL: randomIP(),
-                    requestUnit: '中国地震局',
+                    requestUnit: unitArray[randomNum(0,5)],
                 };
                 data.push(item);
                 return data;
