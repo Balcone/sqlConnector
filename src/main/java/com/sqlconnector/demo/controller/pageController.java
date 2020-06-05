@@ -36,7 +36,7 @@ public class pageController {
         return "disasterRequest";
     }
     
-    public int randomNum(){
+    public static int randomNum(){
         return 10000;
     }
 }
