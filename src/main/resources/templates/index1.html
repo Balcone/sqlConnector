@@ -36,6 +36,21 @@
             <table id="table"></table>
         </div>
         <script>
+            var itemNum = 5;
+            var unitArray = new Array();
+            unitArray[0] = "四川省地震局";
+            unitArray[1] = "云南省地震局";
+            unitArray[2] = "甘肃省地震局";
+            unitArray[3] = "陕西省地震局";
+            unitArray[4] = "宁夏回族自治区地震局";
+            unitArray[5] = "四川省地震局";
+            var locationArray = new Array();
+            locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
+            locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
+            locationArray[2] = "四川省德阳市绵竹县";
+            locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
+            locationArray[4] = "四川省阿坝州汶川县威州镇";
+            locationArray[5] = "四川省广元市青川县";
             //设置需要显示的列
             var columns = [
                 {
@@ -58,20 +73,8 @@
                     title: '地点'
                 },
                 {
-                    field: 'type',
-                    title: '类型'
-                },
-                {
-                    field: 'grade',
-                    title: '破坏等级'
-                },
-                {
-                    field: 'picture',
-                    title: '典型照片'
-                },
-                {
-                    field: 'note',
-                    title: '灾情描述'
+                    field: 'number',
+                    title: '人数'
                 },
                 {
                     field: 'reportUnit',
@@ -83,9 +86,6 @@
                 data: getData(),
                 columns: columns,
                 search: true,
-                searchOnEnterKey: true,
-                showExport:true,
-                exportDataType: "basic",
             });
 
             //删除选中行
@@ -116,24 +116,15 @@
             //后端在这get表格数据
             function getData() {
                 var data = [];
-                var locationArray = new Array();
-                locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
-                locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
-                locationArray[2] = "四川省德阳市绵竹县";
-                locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
-                locationArray[4] = "四川省阿坝州汶川县威州镇";
-                locationArray[5] = "四川省广元市青川县";
+                
                 for (var i = 0; i < 5; i++) {
                     var item = {
                         no: i + 1,
                         ID: '5132211001001112134' + i,
                         date: '12-5-2008-14:28',
                         location: locationArray[randomNum(0,5)],
-                        type: 'V',
-                        grade: 'V',
-                        picture: '/',
-                        note: '死亡人数' + randomNum(10000, 70000),
-                        reportUnit: '中国地震局',
+                        number:randomNum(5,20),
+                        reportUnit: unitArray[randomNum(0,5)],
                     };
                     data.push(item);
                 }
