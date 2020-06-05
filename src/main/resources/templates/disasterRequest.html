@@ -9,11 +9,12 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title>请求列表</title>
     <!--    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />-->
     <!--    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" />-->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"><link>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,19 +28,29 @@
     <!--顶部导航-->
     <div class="row" th:insert="~{public :: public_top}">
     </div>
-    <br />
+    <br/>
     <!--内容-->
     <div class="row">
         <div class="col-sm-2" th:insert="~{public :: public_left_request}">
         </div>
         <div id="toolbar">
             <button onclick="sendToSelects(),alert('成功发送数据')">向所选目标发送数据</button>
-            <button></button>
+            <button onclick="addRequestLine(),alert('成功接收新的数据请求')">接收新的数据请求</button>
         </div>
         <div class="col-sm-10">
             <table id="table" class="table table-hover"></table>
         </div>
         <script>
+            //当前表格的行数 初始为5
+            var itemNum = 5;
+            //location字符串数据
+            var locationArray = new Array();
+            locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
+            locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
+            locationArray[2] = "四川省德阳市绵竹县";
+            locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
+            locationArray[4] = "四川省阿坝州汶川县威州镇";
+            locationArray[5] = "四川省广元市青川县";
             //设置需要显示的列
             var columns = [
                 {
@@ -47,32 +58,34 @@
                 },
                 {
                     field: "no",
-                    title: '序号'
+                    title: '序号',
+                    sortable:true,
                 },
                 {
                     field: 'ID',
-                    title: '编码'
+                    title: '编码',
                 },
                 {
                     field: 'date',
-                    title: '请求时间'
+                    title: '请求时间',
                 },
                 {
                     field: 'disasterType',
-                    title: '请求的灾情类型'
+                    title: '请求的灾情类型',
                 },
                 {
                     field: 'status',
-                    title: '状态'
+                    title: '状态',
                 },
                 {
                     field: 'o_URL',
-                    title: '发送地址'
+                    title: '发送地址',
                 },
                 {
                     field: 'requestUnit',
-                    title: '请求单位'
+                    title: '请求单位',
                 },];
+
             //bs table初始化数据 表内数据由getData()得到
             $('#table').bootstrapTable({
                 toolbar: "#toolbar",
@@ -89,7 +102,24 @@
                     return row.no
                 });
                 obj.bootstrapTable('remove', {field: 'no', values: ids});
+            }
 
+            //接收新的数据请求（增加行）
+            function addRequestLine() {
+                var obj = $('#table');
+                obj.bootstrapTable('insertRow', {
+                    index: 0,
+                    row: {
+                        no: itemNum + 1,
+                        ID: 5132211001001112134,
+                        date: '12-5-2008-14:28',
+                        disasterType: 'V',
+                        status: 'V',
+                        o_URL: locationArray[randomNum(0, 5)],
+                        requestUnit: '中国地震局',
+                    }
+                });
+                itemNum++;
             }
 
             //生成随机数小函数
@@ -110,13 +140,6 @@
             //后端在这get表格数据
             function getData() {
                 var data = [];
-                var locationArray = new Array();
-                locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
-                locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
-                locationArray[2] = "四川省德阳市绵竹县";
-                locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
-                locationArray[4] = "四川省阿坝州汶川县威州镇";
-                locationArray[5] = "四川省广元市青川县";
                 for (var i = 0; i < 5; i++) {
                     var item = {
                         no: i + 1,
@@ -124,7 +147,7 @@
                         date: '12-5-2008-14:28',
                         disasterType: 'V',
                         status: 'V',
-                        o_URL: locationArray[randomNum(0,5)],
+                        o_URL: locationArray[randomNum(0, 5)],
                         requestUnit: '中国地震局',
                     };
                     data.push(item);
