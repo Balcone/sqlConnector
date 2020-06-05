@@ -26,6 +26,11 @@ public class pageController {
         return "index3";
     }
 
+    @RequestMapping("index4")
+    public String goMain4() {
+        return "index4";
+    }
+
     @RequestMapping("202/CommDisaster")
     public String go202() {
         return "202";
