@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>请求列表</title>
+    <title>请求数据</title>
 </head>
 <body>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>请求列表</title>
+    <title>请求数据</title>
     <!--    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />-->
     <!--    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" />-->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,14 +43,6 @@
         <script>
             //当前表格的行数 初始为5
             var itemNum = 5;
-            //location字符串数据
-            var locationArray = new Array();
-            locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
-            locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
-            locationArray[2] = "四川省德阳市绵竹县";
-            locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
-            locationArray[4] = "四川省阿坝州汶川县威州镇";
-            locationArray[5] = "四川省广元市青川县";
             //设置需要显示的列
             var columns = [
                 {
@@ -59,7 +51,7 @@
                 {
                     field: "no",
                     title: '序号',
-                    sortable:true,
+                    sortable: true,
                 },
                 {
                     field: 'ID',
@@ -111,11 +103,11 @@
                     index: 0,
                     row: {
                         no: itemNum + 1,
-                        ID: 5132211001001112134,
+                        ID: '5132211001001112134',
                         date: '12-5-2008-14:28',
                         disasterType: 'V',
-                        status: 'V',
-                        o_URL: locationArray[randomNum(0, 5)],
+                        status: '未发送',
+                        o_URL: randomIP(),
                         requestUnit: '中国地震局',
                     }
                 });
@@ -137,17 +129,21 @@
                 }
             }
 
+            function randomIP() {
+                return randomNum(10, 250) + '.' + randomNum(10, 250) + '.' + randomNum(10, 250) + '.' + randomNum(10, 250);
+            }
+
             //后端在这get表格数据
             function getData() {
                 var data = [];
                 for (var i = 0; i < 5; i++) {
                     var item = {
                         no: i + 1,
-                        ID: 5132211001001112134 + i,
+                        ID: '5132211001001112134',
                         date: '12-5-2008-14:28',
                         disasterType: 'V',
-                        status: 'V',
-                        o_URL: locationArray[randomNum(0, 5)],
+                        status: '未发送',
+                        o_URL: randomIP(),
                         requestUnit: '中国地震局',
                     };
                     data.push(item);
