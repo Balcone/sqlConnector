@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <title>通信系统灾情统计</title>
+    <title>震情</title>
     <!--    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>-->
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link>
@@ -87,7 +87,7 @@
                 showExport:true,
                 exportDataType: "basic",
             });
-            
+
             //删除选中行
             function deleteSelects() {
                 var obj = $('#table');
@@ -97,7 +97,7 @@
                 obj.bootstrapTable('remove', {field: 'no', values: ids});
 
             }
-            
+
             //生成随机数小函数
             function randomNum(minNum, maxNum) {
                 switch (arguments.length) {
@@ -153,12 +153,10 @@
         <p style="color: red" th:text="${result}" th:if="${not #strings.isEmpty(result)}"></p>
     </form>-->
     <!--上传按钮-->
-
-    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-bottom: 50%;">
+    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-top: 10%;">
         <input type="file" name="file"/>
         <input type="submit" value="确定" style="margin-left: 40%;"/>
     </form>
-
 </div>
 </body>
 

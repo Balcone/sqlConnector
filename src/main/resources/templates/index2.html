@@ -1,72 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>泛在感知数据</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:h1="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <title>1</title>
-<!--    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />-->
-<!--    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" />-->
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css"><link>
+    <meta charset="UTF-8"/>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <title>房屋破坏</title>
+    <!--    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="http://www.itxst.com/package/jquery-3.3.1/jquery.js"></script>
+    <!--    <link href="http://www.itxst.com/package/bootstrap-4.3.1/css/bootstrap.css" rel="stylesheet" />-->
+    <link href="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.css" rel="stylesheet"/>
+    <script src="http://www.itxst.com/package/bootstrap-table-1.15.3/bootstrap-table.js"></script>
 </head>
 
+<!--<body th:style="'background:url(' + @{/image/background.jpg} + ');'">-->
 <body>
 <div class="container">
     <!--顶部导航-->
     <div class="row" th:insert="~{public :: public_top}">
     </div>
-    <br />
-    <!--内容-->
+    <br/>
+    <!--左导航和表格-->
     <div class="row">
         <div class="col-sm-2" th:insert="~{public :: public_left}">
         </div>
-        <div class="col-sm-10">
-            <table class="table table-hover">
-                <thead>
-                <tr class="alert-info active table-">
-                    <td><b>id</b></td>
-                    <td><b>地点</b></td>
-                    <td><b>破坏等级</b></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1234567890123456789</td>
-                    <td>四川省</td>
-                    <td>1级</td>
-                </tr>
-                <tr>
-                    <td>1234567890123456789</td>
-                    <td>四川省</td>
-                    <td>2级</td>
-                </tr>
-                <tr>
-                    <td>1234567890123456789</td>
-                    <td>四川省</td>
-                    <td>3级</td>
-                </tr>
-                <tr>
-                    <td>1234567890123456789</td>
-                    <td>北京市</td>
-                    <td>2级</td>
-                </tr>
-                </tbody>
-            </table>
+        <div id="toolbar">
+            <button onclick="deleteSelects() ">删除选中的数据</button>
         </div>
+        <div class="col-sm-10">
+            <table id="table"></table>
+        </div>
+        <script>
+            //设置需要显示的列
+            var columns = [
+                {
+                    checkbox: true
+                },
+                {
+                    field: "no",
+                    title: '序号'
+                },
+                {
+                    field: 'ID',
+                    title: '编码'
+                },
+                {
+                    field: 'date',
+                    title: '上报时间'
+                },
+                {
+                    field: 'location',
+                    title: '地点'
+                },
+                {
+                    field: 'type',
+                    title: '类型'
+                },
+                {
+                    field: 'grade',
+                    title: '破坏等级'
+                },
+                {
+                    field: 'picture',
+                    title: '典型照片'
+                },
+                {
+                    field: 'note',
+                    title: '灾情描述'
+                },
+                {
+                    field: 'reportUnit',
+                    title: '上报单位'
+                },];
+            //bs table初始化数据 表内数据由getData()得到
+            $('#table').bootstrapTable({
+                toolbar: "#toolbar",
+                data: getData(),
+                columns: columns,
+                search: true,
+                searchOnEnterKey: true,
+                showExport:true,
+                exportDataType: "basic",
+            });
+
+            //删除选中行
+            function deleteSelects() {
+                var obj = $('#table');
+                var ids = $.map(obj.bootstrapTable('getSelections'), function (row) {
+                    return row.no
+                });
+                obj.bootstrapTable('remove', {field: 'no', values: ids});
+
+            }
+
+            //生成随机数小函数
+            function randomNum(minNum, maxNum) {
+                switch (arguments.length) {
+                    case 1:
+                        return parseInt(Math.random() * minNum + 1, 10);
+                        break;
+                    case 2:
+                        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                        break;
+                    default:
+                        return 0;
+                        break;
+                }
+            }
+
+            //后端在这get表格数据
+            function getData() {
+                var data = [];
+                var locationArray = new Array();
+                locationArray[0] = "四川省阿坝藏族羌族自治州北川自治县";
+                locationArray[1] = "四川省阿坝藏族羌族自治州汶川县";
+                locationArray[2] = "四川省德阳市绵竹县";
+                locationArray[3] = "四川省阿坝藏族羌族自治州茂县";
+                locationArray[4] = "四川省阿坝州汶川县威州镇";
+                locationArray[5] = "四川省广元市青川县";
+                for (var i = 0; i < 5; i++) {
+                    var item = {
+                        no: i + 1,
+                        ID: '5132211001001112134' + i,
+                        date: '12-5-2008-14:28',
+                        location: locationArray[randomNum(0,5)],
+                        type: 'V',
+                        grade: 'V',
+                        picture: '/',
+                        note: '死亡人数' + randomNum(10000, 70000),
+                        reportUnit: '中国地震局',
+                    };
+                    data.push(item);
+                }
+                ;
+                return data;
+            }
+
+        </script>
     </div>
 </div>
-<script type="text/javascript" src="assets/js/jquery-3.1.1.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!--按钮-->
+<div id="buttons" style="margin-left: 76%;">
+    <!--&lt;!&ndash;下载按钮&ndash;&gt;
+    <form id="download_button" class="form-signin" th:action="@{/employee/File/download}" method="post"
+          style="color: #005cbf;">
+        <p><input type="submit" value="下载"/></p>
+        <p style="color: red" th:text="${result}" th:if="${not #strings.isEmpty(result)}"></p>
+    </form>-->
+    <!--上传按钮-->
+    <form action="/fileUploadController" method="post" enctype="multipart/form-data" style="margin-top: 10%;">
+        <input type="file" name="file"/>
+        <input type="submit" value="确定" style="margin-left: 40%;"/>
+    </form>
+</div>
 </body>
 
-</html>
-</body>
+
 </html>
